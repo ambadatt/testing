@@ -1,0 +1,21 @@
+schemaVersion: 2.2.0
+metadata:
+  name: jupyterlab
+  displayName: Jupyter Lab
+  description: Jupyter Lab with Python preinstalled
+  icon: https://jupyter.org/assets/homepage/main-logo.svg
+  tags:
+    - Python
+    - Jupyter
+components:
+  - name: jupyter
+    container:
+      image: jupyter/base-notebook:latest
+      memoryLimit: 2Gi
+      mountSources: true
+      endpoints:
+        - name: jupyter
+          targetPort: 8888
+          exposure: public
+          protocol: http
+          path: /
